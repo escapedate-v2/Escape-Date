@@ -6,7 +6,7 @@ const newUser = {};
 
 newUser.create = (req, res, next) => {
 
-  console.log('Here is a body, and hopefully its here ', req.body);
+  // console.log('Here is a body, and hopefully its here ', req.body);
   
   const username = req.body.username;
   const password = req.body.password;
@@ -41,7 +41,7 @@ bcrypt.genSalt(rounds, function(err, salt){
 
         db.query(queryString)
           .then(() => {
-            console.log('WE MADE IT')
+            // console.log('WE MADE IT')
             return next();
           })
           .catch((err) => {
