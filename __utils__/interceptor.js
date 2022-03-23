@@ -1,4 +1,4 @@
-import jest from 'jest';
+const jest = require('jest');
 
 module.exports = {
   mockRequest: () => {
