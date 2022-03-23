@@ -1,6 +1,5 @@
 import React from 'react';
-import LoginInformation from './components/loginPage/LoginInformation.jsx';
-import SignUpButton from './components/loginPage/SignUpButton.jsx';
+import LoginContainer from './containers/LoginContainer.jsx';
 import logo from '../Images/Axolotl.png';
 import SignUpPage from './components/signupPage/SignUpPage.jsx';
 import DateInstance from './components/datePage/DateInstance.jsx';
@@ -15,7 +14,7 @@ const MainContainer = props => (
     <h1>Escape Date</h1>
       <Router>
         <Routes>
-          <Route path = '/' element={<><LoginInformation/><SignUpButton/></>}/>
+          <Route path = '/' element={<LoginContainer/>}/>
           <Route path = '/newUser-Contacts' element = {<SignUpPage />}/>
           <Route path = '/newDate' element = {<DateInstance />}/>
           <Route path = '/errorPage' element = {<ErrorPage/>}/>

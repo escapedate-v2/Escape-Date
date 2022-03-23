@@ -2,25 +2,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/actions.js';
 import { bindActionCreators } from 'redux';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import ErrorPage from '../errorPage/ErrorPage.jsx'; 
 import 'regenerator-runtime/runtime';
 
 //two text inputs and a submit button. //create an onSubmit handler for the form that sets off our get request for username authentication.
 
-const mapStateToProps = ({ dateState }) => ({
-  hasSignedIn: dateState.hasSignedIn,
-  emergencyContacts: dateState.emergencyContacts, 
-  primaryContact: dateState.primaryContact, 
-  name: dateState.name
-})
+// const mapStateToProps = ({ dateState }) => ({
+//   hasSignedIn: dateState.hasSignedIn,
+//   emergencyContacts: dateState.emergencyContacts, 
+//   primaryContact: dateState.primaryContact, 
+//   name: dateState.name
+// })
 
-const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
-//our login take username and password.
+// const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
+// our login take username and password.
 
 
 
-const LoginInformation = props => {
+const LoginInformation = ({
+  logIn,
+  hasSignedIn
+}) => {
   const navigate = useNavigate();
 
   
@@ -47,21 +50,21 @@ const LoginInformation = props => {
       //   .catch(err => {
       //     console.log(err);
       //   });
-      props.logIn(e);
+      logIn(e);
       setTimeout(() => {
         console.log(5)
-       if (props.hasSignedIn === true){
+       if (hasSignedIn === true){
         navigate('/newDate')
       } else {
         navigate('/errorPage')
       }}, 1000);
       }} >
-      <input type='text' placeholder='username' />
-      <input type='password' placeholder='password' />
-      <button>login</button>
+      <input type='text' aria-label='username' placeholder='username' />
+      <input type='password' aria-label='password' placeholder='password' />
+      <button aria-label='login'>login</button>
     </form>
   </div>
 )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginInformation);
+export default LoginInformation;
