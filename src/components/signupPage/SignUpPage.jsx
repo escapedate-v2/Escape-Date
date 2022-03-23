@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { useNavigate } from 'react-router-dom';
 //import { getState } from 'redux-thunk';
 
-const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
+//const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
       
 
 const SignUpPage = props => {
@@ -16,8 +16,8 @@ const SignUpPage = props => {
     e.preventDefault(),
     props.signUp(e);
     navigate('/');
-    const myState = store.getState();
-    console.log(myState);
+    // const myState = store.getState();
+    // console.log(myState);
     }}>
         <input type = 'text' placeholder = 'username'/>
         <input type = 'text' placeholder = 'password'/>
@@ -34,4 +34,5 @@ const SignUpPage = props => {
   </div>
 )};
 
-export default connect(null, mapDispatchToProps)(SignUpPage);
+//export default connect(null, mapDispatchToProps)(SignUpPage);
+export default SignUpPage;

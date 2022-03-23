@@ -1,7 +1,6 @@
 import React from 'react'; 
 import { useNavigate } from 'react-router-dom'
 
-
 const ErrorPage = props => {
     const navigate = useNavigate();
 return (
@@ -13,8 +12,5 @@ return (
 )
 
 }; 
- 
-
-
 
 export default ErrorPage;

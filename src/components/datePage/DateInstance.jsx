@@ -4,18 +4,18 @@ import * as actions from '../../actions/actions.js';
 import { bindActionCreators } from 'redux';
 
 
-const mapStateToProps = ({ dateState : { location, nameOfDate, timeOfDate, dateStatus, primaryContact, interval } }) => (
-   {
-    location,
-    nameOfDate,
-    timeOfDate, 
-    dateStatus,
-    primaryContact,
-    interval,
-    }
-);
+// const mapStateToProps = ({ dateState : { location, nameOfDate, timeOfDate, dateStatus, primaryContact, interval } }) => (
+//    {
+//     location,
+//     nameOfDate,
+//     timeOfDate, 
+//     dateStatus,
+//     primaryContact,
+//     interval,
+//     }
+// );
 
-const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
+// const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 const DateInstance = props => {
     
@@ -37,4 +37,5 @@ const DateInstance = props => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(DateInstance);
+//export default connect(mapStateToProps, mapDispatchToProps)(DateInstance);
+export default DateInstance;
