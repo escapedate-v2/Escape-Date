@@ -2,6 +2,7 @@ import * as types from '../actions/actionTypes';
 
 const initialState = {
     hasSignedIn: false,
+    logInError: false,
     emergencyContacts: [],
     primaryContact: null, 
     phoneNumber: null,
@@ -18,11 +19,7 @@ const initialState = {
 const dateReducer = ( state = initialState, action) => {
   switch(action.type) {
     case types.LOG_IN : {
-      //has signed in, emergency contact/primary, name of user.
-      //console.log('at the reducer', action.payload);)
-      // action.payload = action.payload.data;
       if (!action.payload.data.err){
-      //grab the values for emergency contacts here and put them into an array of objects.
       const arr = [];
       console.log(4);
       for (let i = 1; i <= 3; i++){
@@ -36,8 +33,13 @@ const dateReducer = ( state = initialState, action) => {
           emergencyContacts: arr,
           phoneNumber: action.payload.data.phone
         }
-      } else {
-        return state
+      }
+      else {
+        return {
+          ...state,
+          logInError: true
+
+        }
       }
     }
     

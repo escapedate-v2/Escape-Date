@@ -16,7 +16,8 @@ const mapStateToProps = ({ dateState }) => ({
   hasSignedIn: dateState.hasSignedIn,
   emergencyContacts: dateState.emergencyContacts, 
   primaryContact: dateState.primaryContact, 
-  name: dateState.name
+  name: dateState.name,
+  logInError: dateState.logInError
 })
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
@@ -28,7 +29,7 @@ class LoginContainer extends Component {
   render () {
     return (
       <div className = 'login-container' >
-        <LoginInformation logIn={this.props.logIn} hasSignedIn = {this.props.hasSignedIn} emergencyContacts = {this.props.emergencyContacts} primaryContact = {this.props.primaryContact} name = {this.props.name}/>
+        <LoginInformation logIn={this.props.logIn} hasSignedIn = {this.props.hasSignedIn} emergencyContacts = {this.props.emergencyContacts} primaryContact = {this.props.primaryContact} name = {this.props.name} logInError = {this.props.logInError}/>
         <SignUpButton />
       </div>
     )
