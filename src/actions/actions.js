@@ -7,11 +7,9 @@ import axios from 'axios';
 
 export const logIn = (e) => dispatch => {
   const username = e.target[0].value, password = e.target[1].value;
-  console.log(2);
-  axios.post('/login',
+  axios.post('http://localhost:3000/login',
   { username, password })
   .then((data) => {
-    console.log(3);
     dispatch({
         type: types.LOG_IN,
         payload: data,
