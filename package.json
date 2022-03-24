@@ -4,7 +4,7 @@
   "description": "Team Ultimate Axolotl's scratch project",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve",
+    "dev": "concurrently webpack \"cross-env NODE_ENV=development webpack-dev-server --open --hot --progress --color \" \"nodemon server/server.js\"",
     "build": "webpack",
     "start": "nodemon server/server.js",
     "test": "jest"
@@ -23,6 +23,7 @@
     "@reduxjs/toolkit": "^1.8.0",
     "axios": "^0.26.1",
     "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "pg": "^8.7.3",
     "react": "^17.0.2",
@@ -30,6 +31,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2",
     "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.49.9"
@@ -40,6 +42,8 @@
     "@babel/preset-react": "^7.16.7",
     "@redux-devtools/core": "^3.11.0",
     "babel-loader": "^8.2.3",
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "eslint": "^8.11.0",
     "express": "^4.17.3",
@@ -55,6 +59,5 @@
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
-  },
-  "type" : "module"
+  }
 }

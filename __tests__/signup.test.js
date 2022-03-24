@@ -38,44 +38,50 @@ describe('Check sign newUserController create method', () => {
     pgPool = new Pool({
       connectionString: 'postgres://uukfmpcg:aaPysolXzgSV_yRyvtuH5iPpHFMNuZmN@raja.db.elephantsql.com/uukfmpcg'
     });
+    let req = mocks.mockRequest(); 
+        
+    req.body = {
+      name: 'TREY ALL DAY',
+      phone: 'Random',
+      password: '123random',
+      username: 'hawaiibro3'
+      }
+    
+    const res = mocks.mockResponse();
+    
+    const client = await pgPool.connect();
+    
+    signup.create(req, res)
   });
 
   afterAll(async () => {
     await pgPool.end();
   })
 
-
     
   it('should add correct username', async () => {
-    const client = await pgPool.connect();
+    
     try {
+      
        // await client.query('BEGIN');
 
-      let req = mocks.mockRequest();
-        
-      req.body = {
-        name: 'BillyBob',
-        phone: 'Random',
-        password: '123random',
-        username: 'billyuser'
-        }
       
-      const res = mocks.mockResponse();
-  
-      await signup.create(req, res);
-  
+
       const sqlQuery = `
           SELECT username FROM users
-          WHERE name = 'BillyBob';
+          WHERE name = 'TREY ALL DAY';
           `
-      setTimeout(async () => {let { rows } = await client.query(sqlQuery);
+      
+      let { rows } =  await client.query(sqlQuery);
       console.log(rows);
-      expect(rows[0].username).toEqual('billyuser');
-      rows = []}, 999)
+      expect(rows[rows.length - 1].username).toEqual('hawaiibro3');
+      rows = []
+      
       // await client.query('ROLLBACK');
     } catch (err) {
         throw err;
-    } finally {
+    } 
+    finally {
       client.release();
     }
     });

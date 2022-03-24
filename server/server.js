@@ -5,20 +5,26 @@ const PORT = 3000;
 // const bodyParser = require('body-parser');
 const cors = require('cors');
 const signInRouter = require('./routers/signIn');
-const newUser = require('./routers/newUser')
+const newUserRouter = require('./routers/newUserRouter')
 const dateRouter = require('./routers/dateRouter');
+const cookieParser = require('cookie-parser');
 
 app.use(cors());
+app.use(cookieParser())
 
 
 app.use(express.static(path.resolve(__dirname, '../src')))
 app.use(express.json());
 
+// access cookies of incoming request throught req.cookies.
+
 app.use('/login', signInRouter);
 
-app.use('/session', newUser);
+app.use('/newuser', newUserRouter);
 
-app.use('/newDate', dateRouter);
+app.use('/newdate', dateRouter);
+
+
 
 
 //global error handler

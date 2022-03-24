@@ -29,24 +29,6 @@ const LoginInformation = props => {
     <form className = 'input-text' onSubmit = { (e) => {
       e.preventDefault();
       console.log(1);
-//WE SHOULD HAVE USED COOKIES AND WE'RE SORRY// ALSO YOU HAVE TO LOG IN TWICE NBD JUST REAL SECURE//
-      // new Promise((resolve, reject) => {
-      //   return props.logIn(e);
-      // })
-      // .then(() => {
-      //  if (props.hasSignedIn === true){
-      //       console.log("WE MADE IT YAY")
-      //       navigate('/newDate')
-      //       return
-      //     } else {
-      //       console.log(props, 'error found')
-      //       navigate('/errorPage')
-      //       return
-      //     } 
-      //   })
-      //   .catch(err => {
-      //     console.log(err);
-      //   });
       props.logIn(e);
       setTimeout(() => {
         console.log(5)
@@ -65,3 +47,24 @@ const LoginInformation = props => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginInformation);
+
+
+
+//WE SHOULD HAVE USED COOKIES AND WE'RE SORRY// ALSO YOU HAVE TO LOG IN TWICE NBD JUST REAL SECURE//
+      // new Promise((resolve, reject) => {
+      //   return props.logIn(e);
+      // })
+      // .then(() => {
+      //  if (props.hasSignedIn === true){
+      //       console.log("WE MADE IT YAY")
+      //       navigate('/newDate')
+      //       return
+      //     } else {
+      //       console.log(props, 'error found')
+      //       navigate('/errorPage')
+      //       return
+      //     } 
+      //   })
+      //   .catch(err => {
+      //     console.log(err);
+      //   });
