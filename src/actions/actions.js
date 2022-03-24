@@ -6,6 +6,7 @@ import axios from 'axios';
 
 export const logIn = (e) => dispatch => {
   const username = e.target[0].value, password = e.target[1].value;
+<<<<<<< HEAD
 
   console.log(2);
   axios.post('/login', { username, password })
@@ -13,6 +14,12 @@ export const logIn = (e) => dispatch => {
       console.log(3);
       console.log(data);
       dispatch({
+=======
+  axios.post('http://localhost:3000/login',
+  { username, password })
+  .then((data) => {
+    dispatch({
+>>>>>>> dev
         type: types.LOG_IN,
         payload: data,
       });

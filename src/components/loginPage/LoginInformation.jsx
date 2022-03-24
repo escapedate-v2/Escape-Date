@@ -48,6 +48,7 @@ const LoginInformation = ({
   }
   if (hasSignedIn) navigate('/newDate');
   
+<<<<<<< HEAD
   return (
     <div className='form-container'>
       <form className='input-text' onSubmit={(e) => {
@@ -64,3 +65,49 @@ const LoginInformation = ({
 }
 
 export default LoginInformation;
+=======
+ return (
+  <div className = 'form-container'>
+    <form className = 'input-text' onSubmit = { (e) => {
+      e.preventDefault();
+      console.log(1);
+      props.logIn(e);
+      setTimeout(() => {
+        console.log(5)
+       if (props.hasSignedIn === true){
+        navigate('/newDate')
+      } else {
+        navigate('/errorPage')
+      }}, 1000);
+      }} >
+      <input type='text' placeholder='username' />
+      <input type='password' placeholder='password' />
+      <button>login</button>
+    </form>
+  </div>
+)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginInformation);
+
+
+
+//WE SHOULD HAVE USED COOKIES AND WE'RE SORRY// ALSO YOU HAVE TO LOG IN TWICE NBD JUST REAL SECURE//
+      // new Promise((resolve, reject) => {
+      //   return props.logIn(e);
+      // })
+      // .then(() => {
+      //  if (props.hasSignedIn === true){
+      //       console.log("WE MADE IT YAY")
+      //       navigate('/newDate')
+      //       return
+      //     } else {
+      //       console.log(props, 'error found')
+      //       navigate('/errorPage')
+      //       return
+      //     } 
+      //   })
+      //   .catch(err => {
+      //     console.log(err);
+      //   });
+>>>>>>> dev
