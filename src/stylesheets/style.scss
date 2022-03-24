@@ -32,6 +32,11 @@ body {
   background-color: lighten($primary, 10%);
   height: 730px;
 }
+
+.login-container {
+  @include default-flexbox;
+}
+
 button {
   @include default-flexbox;
   color: white;
@@ -48,6 +53,7 @@ form {
     @include default-flexbox;
     border: solid 1px rgb(160, 149, 149);
   }
+
 }
 
 .error{

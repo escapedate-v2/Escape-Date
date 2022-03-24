@@ -19,14 +19,20 @@
     "url": "https://github.com/Team-Ultimate-Axolotl/Escape-Date/issues"
   },
   "homepage": "https://github.com/Team-Ultimate-Axolotl/Escape-Date#readme",
+  "jest": {
+    "testEnvironment": "jest-environment-jsdom"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "axios": "^0.26.1",
+    "babel-jest": "^27.5.1",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "jest-environment-jsdom": "^27.5.1",
     "pg": "^8.7.3",
     "react": "^17.0.2",
+    "react-cookie": "^4.1.1",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2",
@@ -41,6 +47,9 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@redux-devtools/core": "^3.11.0",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
+    "@types/jest": "^27.4.1",
     "babel-loader": "^8.2.3",
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
@@ -52,6 +61,7 @@
     "image-webpack-loader": "^8.1.0",
     "jest": "^27.5.1",
     "nodemon": "^2.0.15",
+    "redux-devtools-extension": "^2.13.9",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
     "supertest": "^6.2.2",

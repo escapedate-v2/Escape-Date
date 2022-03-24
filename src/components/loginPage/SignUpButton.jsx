@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const SignUpButton = props => {
   const navigate = useNavigate();
   return (
-  <button onClick={() => navigate('/newUser-Contacts')}> Sign me up please! </button>
+  <button onClick={() => navigate('/newUser-Contacts')} aria-label = 'SignUpButton' > Sign me up please! </button>
   )
 };
 
