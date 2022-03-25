@@ -7,11 +7,18 @@ const cors = require('cors');
 const signInRouter = require('./routers/signIn');
 const newUserRouter = require('./routers/newUserRouter')
 const dateRouter = require('./routers/dateRouter');
+const deleteDateRouter = require('./routers/deleteDateRouter')
+
 const cookieParser = require('cookie-parser');
 
 app.use(cors());
 app.use(cookieParser())
 
+
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
 
 app.use(express.static(path.resolve(__dirname, '../src')))
 app.use(express.json());
@@ -23,6 +30,8 @@ app.use('/login', signInRouter);
 app.use('/newuser', newUserRouter);
 
 app.use('/newdate', dateRouter);
+
+app.use('/deletedate', deleteDateRouter)
 
 
 
