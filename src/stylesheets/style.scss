@@ -23,6 +23,7 @@ $primary-text: darken(lightgrey, 30%);
 body {
   background: linear-gradient(to right, rgb(239, 255, 222), rgb(200, 239, 252), rgba(248, 237, 214, 0.74));
   font-family: 'M PLUS Rounded 1c', sans-serif;
+  padding-top: 10%;
 }
 
 .container {
@@ -40,10 +41,18 @@ body {
 button {
   @include default-flexbox;
   color: white;
-  background-color: rgb(145, 155, 199);
-  border: solid 1px rgb(160, 149, 149);
-  padding: 6px;
-  box-shadow: 0 4px 12px 0 rgb(136, 146, 187);
+  background-color: #727a9c;
+  // border: solid 1px rgb(220, 132, 255);
+  border: 0px;
+  padding: 10px 20px;
+  box-shadow: 0 0px 12px 0px rgba(219, 130, 255, 0.685);
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(219, 130, 255);
 }
 
 form {
@@ -52,14 +61,81 @@ form {
   input {
     @include default-flexbox;
     border: solid 1px rgb(160, 149, 149);
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
   }
-
+  input:focus {
+    outline: solid 2px rgba(219, 130, 255, 0.685);
+  }
+  margin-bottom: 25px;
+  .signup {
+    border: 1px solid rgb(160, 149, 149);
+    background-color: none;
+    color: rgb(160, 149, 149);
+  }
 }
 
 .error{
   @include default-flexbox;
 }
 
-h1{
+h1 {
   color: rgb(114, 122, 156); 
+  margin: 0px auto;
+}
+
+h2, h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  min-width: 106px;
+}
+
+.date-information {
+  @include default-flexbox;
+}
+
+.date-information-cards {
+  width: 88vw;
+  display: grid;
+  justify-content: center;
+  grid-template-columns:  repeat(auto-fit, 16rem);
+  grid-auto-flow: row;
+}
+
+.date-info-card {
+  border: solid 1px rgb(160, 149, 149);
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+.date-info-name {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  align-items: center;
+  padding-right: 15px;
+  padding-top: 5px;
+  h3 {
+    text-align: center;
+  }
+  button {
+    border-radius: 10px;
+  }
+}
+
+.date-info-field {
+  @include default-flexbox;
+  flex-direction: row;
+  justify-content: space-between;
+
+  span {
+    text-align: right;
+  }
 }

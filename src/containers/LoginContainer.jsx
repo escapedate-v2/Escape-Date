@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions.js';
 import { bindActionCreators } from 'redux';
-// import { useNavigate } from 'react-router-dom'; 
-import ErrorPage from '../components/errorPage/ErrorPage.jsx'; 
-//may need to change directories for the following imports
 import 'regenerator-runtime/runtime';
 import LoginInformation from '../components/loginPage/LoginInformation.jsx';
 import SignUpButton from '../components/loginPage/SignUpButton.jsx';

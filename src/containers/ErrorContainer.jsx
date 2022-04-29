@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { useNavigate } from 'react-router-dom'
 import ErrorPage from '../components/errorPage/ErrorPage.jsx';
 
 class ErrorContainer extends Component {

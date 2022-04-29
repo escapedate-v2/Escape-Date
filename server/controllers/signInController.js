@@ -29,6 +29,11 @@ signIn.user = (request, response, next) => {
                 console.log('incorrect password');
                 return response.status(404).json('incorrect password')
             } else {
+                response.locals.allData = {};
+                response.locals.userData = data.rows;
+                response.locals.allData.userData = data.rows;
+                response.locals.userId = data.rows[0].user_id;
+                console.log(data);
                 const randomNum = Math.floor(Math.random()*12346345)
                 response.cookie('loggedIn', randomNum, {
                     maxAge: 10000, 
@@ -37,6 +42,7 @@ signIn.user = (request, response, next) => {
                 )
                 const values = [ randomNum, username ];
                 console.log('pre-secret insert');
+                console.log('RANDOMNUM, USERNAME: ', randomNum, username)
                 const query = `
                     UPDATE users
                     SET secret = $1
@@ -66,5 +72,48 @@ signIn.user = (request, response, next) => {
     })
 }
 
+signIn.getDates = (req, res, next) => {
+    const userId = res.locals.userId;
+    const values = [userId];
+    const queryString = `
+        SELECT * FROM dates WHERE user_id = ($1);
+    `;
+    db.query(queryString, values)
+    .then((data) => {
+        res.locals.dateData = data.rows;
+        res.locals.allData.dateData = data.rows;
+    })
+    .then(() => next())
+    .catch((errObj) => {
+        errObj.log = 'error in signinController getDates middleware';
+        errObj.status = 400;
+        errObj.message = {err: 'error in signinController getDates middleware'};
+        return next(errObj);
+    })
+}
+
+
+
+
+signIn.getContacts = (req, res, next) => {
+    const query =`
+        SELECT *
+        FROM em_contacts
+        WHERE user_id =($1)
+    `
+    const values = [res.locals.userId]
+
+    db.query(query, values)
+        .then((data) => {
+            res.locals.allData.contactData = data.rows;
+            return next()
+        })
+        .catch((errObj) => {
+            errObj.log = 'error in controller.signin.getContacts';
+            errObj.status = 400;
+            errObj.message = {err: 'controller.signIn.getContacts error'};
+            return next(errObj);
+        })
+}
 
 module.exports = signIn;

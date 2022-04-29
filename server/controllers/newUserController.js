@@ -1,7 +1,7 @@
 const { query } = require("express");
 const db = require("../../database/model");
 const bcrypt = require('bcrypt');
-const { response } = require("../server");
+// const { response } = require("../server");
 
 const newUser = {};
 
@@ -26,12 +26,16 @@ bcrypt.genSalt(rounds, async (err, salt) => {
       } else {
         //console.log('prequery');
         const randomNum = Math.floor(Math.random() * 11235813);
-        values = [request.body.username, hash, request.body.name, request.body.phone, randomNum]
+        const values = [request.body.username, hash, request.body.name, request.body.phone, randomNum]
         const queryString = `
           INSERT INTO users (username, password, name, phone, secret)
           VALUES ($1, $2, $3, $4, $5)
           RETURNING user_id;
         `
+        // const queryString = `
+        //   WITH user_key AS (INSERT INTO users (username, password, name, phone, secret) VALUES ($1, $2, $3, $4, $5) RETURNING user_id)
+        //   INSERT INTO em_contacts (user_id, em_name, em_phone) VALUES (user_key, $6, $7) RETURNING *;
+        // `
         db.query(queryString, values)
           .then((data) => {
             response.locals.user_id = data.rows[0].user_id;
